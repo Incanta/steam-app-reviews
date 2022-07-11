@@ -10,7 +10,7 @@ if (isNaN(parseInt(SteamAppId, 10))) {
 const AppReviewsUrl = `https://store.steampowered.com/appreviews/${SteamAppId}?json=1`;
 
 const params = {
-  filter: "all",
+  filter: "recent",
   language: "all",
   day_range: 365, // 365 is max
   review_type: "all",
@@ -27,13 +27,15 @@ const PreviousCursors = [];
 
 (async () => {
   while (NextCursor) {
-    params.cursor = NextCursor;
+    params.cursor = encodeURIComponent(NextCursor);
 
     const paramsEncoded = Object.keys(params).map(key => {
       return `&${key}=${params[key]}`;
     });
 
-    const CompleteUrl = AppReviewsUrl + paramsEncoded;
+    const CompleteUrl = AppReviewsUrl + paramsEncoded.join("");
+
+    console.log(CompleteUrl);
 
     const content = await axios.get(CompleteUrl);
 
