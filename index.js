@@ -53,5 +53,5 @@ const PreviousCursors = [];
 
   const joinedReviews = reviews.flat();
 
-  fs.writeFileSync("reviews.json", JSON.stringify(joinedReviews));
+  fs.writeFileSync("reviews.json", JSON.stringify(joinedReviews, null, 2));
 })();
