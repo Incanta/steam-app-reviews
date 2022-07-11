@@ -12,5 +12,5 @@ This simple script will export all of the reviews for a Steam app.
 1. Clone this repo
 1. In the repo directory, install dependencies by running `yarn`
 1. Run `yarn start YourSteamAppId`
-  - For example: `yarn start 1744770`
+    - For example: `yarn start 1744770`
 1. See the output file `reviews.json` with all of your reviews
